@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./dist/output.css">
+
+    <title>My List-Movie</title>
+
+</head>
+
+<body class="flex flex-col h-dvh ">
+
+    <header class="bg-sky-950 ">
+
+        <h2 class="font-bold text-amber-400 text-center p-2">
+            <i class="bi bi-film mr-1"></i>My List-movie
+        </h2>
+
+        <div id="input-wrapper" class="flex flex-col gap-2 box-border">
+
+            <div id="movie-name" class="flex" >
+                <label for="movie-name" class="font-bold text-amber-400 text-xs px-2">
+                    Nome:</label>
+                <input type="text" id="movie-name" name="movie-name" class="bg-white rounded-sm w-full mr-2">
+            </div>
+
+            <div id="movie-year" class="flex ">
+                <label for="movie-year" class="font-bold text-amber-400  text-xs px-2">
+                    Ano:</label>
+                <input type="number" id="movie-year" name="movie-year" class="bg-white rounded-sm  w-full mr-2 ">
+            </div>
+        </div>
+        <div id="search-button" class="text-center p-2">
+            <button class="text-amber-400 outline-1 outline-white rounded-xl w-15  "><i class="bi bi-search "></i></button>
+        </div>
+    </header>
+    <main id="movie-list" class="text-center p-3 font-bold bg-slate-500 flex-1 text-white md:text-2xl">My list-movie
+    </main>
+</body>
+
+</html>
