@@ -10,15 +10,15 @@
 
 </head>
 
-<body class="flex flex-col h-dvh ">
+<body class="flex flex-col h-dvh w-full">
 
-    <header class="bg-sky-950 ">
+    <header class="bg-sky-950 md:flex md:flex-row  md:justify-between md:items-center md:p-2  ">
 
-        <h2 class="font-bold text-amber-400 text-center p-2">
+        <h2 class="font-bold text-amber-400 text-center p-2 md:ml-6 ">
             <i class="bi bi-film mr-1"></i>My List-movie
         </h2>
 
-        <div id="input-wrapper" class="flex flex-col gap-2 box-border">
+        <div id="input-wrapper" class="flex flex-col gap-2 box-border md:flex-row md:items-center">
 
             <div id="movie-name" class="flex" >
                 <label for="movie-name" class="font-bold text-amber-400 text-xs px-2">
@@ -31,9 +31,9 @@
                     Ano:</label>
                 <input type="number" id="movie-year" name="movie-year" class="bg-white rounded-sm  w-full mr-2 ">
             </div>
-        </div>
-        <div id="search-button" class="text-center p-2 ">
-            <button class="text-amber-400 outline-2 outline-white rounded-xl w-16 active:bg-amber-400 active:text-slate-900"><i class="bi bi-search "></i></button>
+            <div id="search-button" class="text-center p-2 ">
+                <button class="text-amber-400 outline-2 outline-white rounded-xl w-14 active:bg-amber-400 active:text-slate-900 md:w-10"><i class="bi bi-search "></i></button>
+            </div>
         </div>
     </header>
     <main id="movie-list" class="text-center p-3 font-bold bg-slate-500 flex-1 text-white md:text-2xl">My list-movie
