@@ -201,6 +201,12 @@
   .z-10 {
     z-index: 10;
   }
+  .m-auto {
+    margin: auto;
+  }
+  .mt-3 {
+    margin-top: calc(var(--spacing) * 3);
+  }
   .mr-1 {
     margin-right: var(--spacing);
   }
@@ -218,6 +224,9 @@
   }
   .h-\[7\] {
     height: 7;
+  }
+  .h-\[8dvh\] {
+    height: 8dvh;
   }
   .h-\[30dvh\] {
     height: 30dvh;
@@ -242,6 +251,9 @@
   }
   .h-\[85dvh\] {
     height: 85dvh;
+  }
+  .h-\[90dvh\] {
+    height: 90dvh;
   }
   .h-\[650dvh\] {
     height: 650dvh;
@@ -331,8 +343,32 @@
   .px-2 {
     padding-inline: calc(var(--spacing) * 2);
   }
+  .py-2 {
+    padding-block: calc(var(--spacing) * 2);
+  }
+  .pt-2 {
+    padding-top: calc(var(--spacing) * 2);
+  }
+  .pt-3 {
+    padding-top: calc(var(--spacing) * 3);
+  }
+  .pb-2 {
+    padding-bottom: calc(var(--spacing) * 2);
+  }
+  .pl-2 {
+    padding-left: calc(var(--spacing) * 2);
+  }
   .text-center {
     text-align: center;
+  }
+  .indent-1 {
+    text-indent: var(--spacing);
+  }
+  .indent-2 {
+    text-indent: calc(var(--spacing) * 2);
+  }
+  .indent-3 {
+    text-indent: calc(var(--spacing) * 3);
   }
   .text-xs {
     font-size: var(--text-xs);
