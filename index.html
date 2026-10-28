@@ -45,7 +45,7 @@
             <h2 class="font-bold text-amber-400 text-center">My List-Movie</h2>
         </section>
 
-        <section id="modal-overlay" class="flex fixed top-0 left-0 w-full h-full justify-center items-center">
+        <section id="modal-overlay" class="flex fixed top-0 left-0 w-full h-full justify-center items-center ">
 
             <section id="modal-background" class="bg-slate-500 w-full h-full absolute z-0 opacity-70 rounded-xl ">
             </section>
@@ -53,7 +53,8 @@
             <section id="modal-container" class="z-10 bg-slate-600 p-4 rounded-xl w-[85dvw] h-[80dvh] overflow-y-auto">
                 <div id="title-movie" class="flex justify-between">
                     <h2 class="font-bold pb-2">Harry Potter and the Deathly Hallows: Part 2</h2>
-                    <button class="pl-2"><i class="bi bi-x-circle"></i></button>
+
+                    <button id="btn-exit"class=" flex items-center justify-center m-3  active:rounded-full active:bg-red-500 active:w-4 h-4 active:text-white "><i class="bi bi-x-circle"></i></button>
                 </div>
 
                 <div id="movie-body" class=" ">
@@ -79,7 +80,6 @@
             </section>
         </section>
     </main>
-
 </body>
-
+<script src="script.js"></script>
 </html>
