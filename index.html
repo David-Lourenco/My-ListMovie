@@ -13,7 +13,7 @@
 
 <body class="flex flex-col h-dvh w-full  bg-slate-500 flex-1">
 
-    <header class="bg-sky-950 md:flex md:flex-row  md:justify-between md:items-center md:p-2  ">
+    <header class="bg-sky-950 md:flex md:flex-row  md:justify-between md:items-center md:p-2 md:text-lg  ">
 
         <h2 class="font-bold text-amber-400 text-center p-2 md:ml-6 ">
             <i class="bi bi-film mr-1"></i>My List-movie
@@ -41,7 +41,7 @@
     </header>
 
     <main>
-        <section id="movie-list" class="items-center flex flex-col gap-2 p-2">
+        <section id="movie-list" class="items-center flex flex-col gap-2 p-2 md:text-xl ">
             <h2 class="font-bold text-amber-400 text-center">My List-Movie</h2>
         </section>
 
@@ -50,25 +50,33 @@
             <section id="modal-background" class="bg-slate-500 w-full h-full absolute z-0 opacity-70 rounded-xl ">
             </section>
 
-            <section id="modal-container" class="z-10 bg-slate-600 p-4 rounded-xl w-[85dvw] h-[80dvh] overflow-y-auto">
+            <section id="modal-container"
+                class="z-10 bg-slate-600 p-4 rounded-xl w-[85dvw] h-[80dvh] overflow-y-auto md:h-[50dvh]">
                 <div id="title-movie" class="flex justify-between">
-                    <h2 class="font-bold pb-2">Harry Potter and the Deathly Hallows: Part 2</h2>
+                    <h2 class="font-bold pb-2 md:text-xl lg:text-2xl">Harry Potter and the Deathly Hallows: Part 2</h2>
 
-                    <button id="btn-exit"class=" flex items-center justify-center m-3  active:rounded-full active:bg-red-500 active:w-4 h-4 active:text-white "><i class="bi bi-x-circle"></i></button>
+                    <button id="btn-exit"
+                        class=" flex items-center justify-center m-3  active:rounded-full active:bg-red-500 active:w-4 h-4 active:text-white "><i
+                            class="bi bi-x-circle lg:text-2xl"></i></button>
                 </div>
 
-                <div id="movie-body" class=" ">
-                    <img src="https://m.media-amazon.com/images/M/MV5BOTA1Mzc2N2ItZWRiNS00MjQzLTlmZDQtMjU0NmY1YWRkMGQ4XkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg" alt="poster do filme" class=" rounded-xl h-[35dvh] m-auto">
-                    <div id="movie-info">
+                <div id="movie-body" class="md:flex ">
+                    <img src="https://m.media-amazon.com/images/M/MV5BOTA1Mzc2N2ItZWRiNS00MjQzLTlmZDQtMjU0NmY1YWRkMGQ4XkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg"
+                        alt="poster do filme" class=" rounded-xl h-[35dvh] m-auto">
+
+                    <div id="movie-info" class="md:ml-8 md:text-base lg:text-2xl">
+
                         <div id="movie-sinopse">
                             <h3 class="font-bold">Sinopse:</h3>
-                            <p class="indent-1">Harry, Ron and Hermione set out on a quest to eliminate the remaining horcruxes. On the other hand, the students and teachers must unite to defend Hogwarts against Lord Voldemort and his army.</p>
+                            <p class="indent-1">Harry, Ron and Hermione set out on a quest to eliminate the remaining
+                                horcruxes. On the other hand, the students and teachers must unite to defend Hogwarts
+                                against Lord Voldemort and his army.</p>
                         </div>
-                        <div id="movie-cast">
+                        <div id="movie-cast" class="md:mt-3">
                             <h3 class="font-bold">Elenco:</h3>
                             <p class="indent-1">Daniel Radcliffe, Emma Watson, Rupert Grint.</p>
                         </div>
-                        <div id="movie-genero">
+                        <div id="movie-genero" class="md:mt-3">
                             <h3 class="font-bold">Gênero:</h3>
                             <p class="indent-1">Adventure, Family, Fantasy.</p>
                         </div>
@@ -82,4 +90,5 @@
     </main>
 </body>
 <script src="script.js"></script>
+
 </html>
