@@ -32,10 +32,8 @@
                     Ano:</label>
                 <input type="number" id="movie-year" name="movie-year" class="bg-white rounded-sm  w-full mr-2 ">
             </div>
-            <div id="search-button" class="text-center p-2 ">
-                <button
-                    class="text-amber-400 outline-2 outline-white rounded-xl w-14 active:bg-amber-400 active:text-slate-900 md:w-10"><i
-                        class="bi bi-search "></i></button>
+            <div class="text-center p-2 ">
+                <button id="search-button" class="text-amber-400 outline-2 outline-white rounded-xl w-14 active:bg-amber-400 active:text-slate-900 md:w-10"><i class="bi bi-search "></i></button>
             </div>
         </div>
     </header>
@@ -45,7 +43,7 @@
             <h2 class="font-bold text-amber-400 text-center">My List-Movie</h2>
         </section>
 
-        <section id="modal-overlay" class="flex fixed top-0 left-0 w-full h-full justify-center items-center ">
+        <section id="modal-overlay" class="flex fixed top-0 left-0 w-full h-full justify-center items-center invisible">
 
             <section id="modal-background" class="bg-slate-500 w-full h-full absolute z-0 opacity-70 rounded-xl ">
             </section>
@@ -90,5 +88,6 @@
     </main>
 </body>
 <script src="script.js"></script>
+<script src="script-modal.js"></script>
 
 </html>

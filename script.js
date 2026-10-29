@@ -1,10 +1,18 @@
 const overlay = document.getElementById('modal-overlay');
 const exit = document.getElementById('btn-exit');
+const btnSearch = document.getElementById('search-button');
 
-function clickExit(){
-    overlay.classList.add('invisible');
-    overlay.classList.add('ease-in','duration-400','opacity-10')
-
+function btnOpen() {
+    overlay.classList.add('visible','opacity-100');
+   
+   
 }
 
-exit.addEventListener('click' ,clickExit)
+function clickExit() {
+    overlay.classList.remove('visible','opacity-100');
+    overlay.classList.add('ease-in-out', 'duration-500', 'opacity-0')
+   
+}
+
+btnSearch.addEventListener('click', btnOpen);
+exit.addEventListener('click', clickExit)
