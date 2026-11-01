@@ -2,6 +2,7 @@ const overlay = document.getElementById('modal-overlay');
 const exit = document.getElementById('btn-exit');
 const btnSearch = document.getElementById('search-button');
 
+
 const movieName = document.getElementById('movie-name');
 const movieYear = document.getElementById('movie-year');
 
@@ -77,13 +78,20 @@ function upDataMovieList(movieObject) {
     //Cria adiciona toda uma estrutura HTML ao meu documento index+
     movieCard.innerHTML = ` 
         <h2 class="p-2">${movieObject.Title} - ${movieObject.Year}</h2> 
-        <article class="flex items-start">
+        <article id='movie-card-${movieObject.imdbID}' class="flex items-start">
             <img src="${movieObject.Poster}" alt="Poster do filme">
         </article>
-        <button class="p-1  active:bg-red-500 active:rounded-b-xl">
+        <button
+        id="btnRemove" class="p-1  active:bg-red-500 active:rounded-b-xl">
             <i class="bi bi-trash3-fill"></i> Remover
         </button>
     `;
+        const btnRemove = movieCard.querySelector('#btnRemove'); //funçaõ interna usada pra remover um card da playlist
+        btnRemove.addEventListener('click',function(){
+            movieCard.remove();
+            movieList = movieList.filter( movie => movie.imdbID !== movieObject.imdbID)
+        });
+
     movieListElement.appendChild(movieCard);//Adiciona um elemento filho ao Elemento movieListElement
 }
 
