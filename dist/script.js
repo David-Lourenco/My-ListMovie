@@ -3,7 +3,6 @@ const overlay = document.getElementById('modal-overlay');
 const exit = document.getElementById('btn-exit');
 const btnSearch = document.getElementById('search-button');
 
-
 const movieName = document.getElementById('movie-name');
 const movieYear = document.getElementById('movie-year');
 
@@ -12,12 +11,13 @@ const addButton = document.getElementById('add-button')
 const movieListElement = document.getElementById('movie-list');
 
 let curretMovie = {}; //variavel que guarda meu filme atual ou seja o que esta sendo pesquisado
-let movieList = []; //variavel que guarda um lista vazia onde vai ser adicionado meus filmes
+let movieList = JSON.parse(localStorage.getItem('movieList'))??[];//variavel que guarda um lista vazia onde vai ser adicionado meus filmes
 
 
 async function btnOpen() {
-    try { //tratamento de erro , que manda executar o codigo abaixo,caso haja algum erro ele pula direto para o catch
-        let url = `http://www.omdbapi.com/?apikey=${key}&t=${treatmentName()}&y=${treatmentYear()}`
+    try {
+        let translateName  = await treatmentName(); //tratamento de erro , que manda executar o codigo abaixo,caso haja algum erro ele pula direto para o catch
+        let url = `http://www.omdbapi.com/?apikey=${key}&t=${translateName}&y=${treatmentYear()}`
 
         const response = await fetch(url);
         const data = await response.json()
@@ -26,14 +26,15 @@ async function btnOpen() {
             throw new Error('Filme nao encontrado')
         }
         preenchimentoModal(data); //função que ao fazer a requisição a API preenche meu modal de acordo com as imformações que eu passei.
-
+        
+        
         overlay.classList.add('visible', 'opacity-100');
 
         movieName.value = ''; // para zerar o campo de pesquisa de nome apos click para pequisa.
         movieYear.value = '';// para zerar o campo de pesquisa de ano apos click para pequisa.
 
     } catch (error) {
-        notie.alert({ type: 'error', text: error.message, time: 1 }); //ao aperta o botão de pesquisa sem preencher os dados irá aparecer uma notificação de erro vindo do top. Bibliotce usada notie.master.
+        notie.alert({text:'PorFavor escreva o nome do filme'}) //ao aperta o botão de pesquisa sem preencher os dados irá aparecer uma notificação de erro vindo do top. Bibliotce usada notie.master.
     }
 }
 
@@ -42,10 +43,18 @@ function clickExit() {
     overlay.classList.add('ease-in-out', 'duration-500', 'opacity-0');
 }
 
-function treatmentName() {
+btnSearch.addEventListener('click', btnOpen);
+exit.addEventListener('click', clickExit);
+
+
+
+async function treatmentName() {
     if (movieName.value === '') {
         throw new Error('Porfavor digite o nome do filme')
-    } return movieName.value.split(' ').join('+')
+    } 
+    let textTranslate = await translate(movieName.value,'pt','en')
+
+    return textTranslate.split(' ').join('+')
 }
 
 function treatmentYear() {
@@ -63,12 +72,9 @@ function preenchimentoModal(data) {
     document.querySelector('#movie-sinopse p').textContent = data.Plot;
     document.querySelector('#movie-cast p').textContent = data.Actors;
     document.querySelector('#movie-genero p').textContent = data.Genre;
-
 }
 
-function addToList(movieObject) {
-    movieList.push(movieObject);
-}
+
 
 function upDataMovieList(movieObject) {
 
@@ -91,6 +97,7 @@ function upDataMovieList(movieObject) {
         btnRemove.addEventListener('click',function(){
             movieCard.remove();
             movieList = movieList.filter( movie => movie.imdbID !== movieObject.imdbID)
+            updataLocalStorage()
         });
 
     movieListElement.appendChild(movieCard);//Adiciona um elemento filho ao Elemento movieListElement
@@ -106,8 +113,15 @@ function addCurretMovieToList() { //Evita que voce coloque dois filmes iguais na
 
     addToList(curretMovie);
     upDataMovieList(curretMovie);
+    updataLocalStorage()
     clickExit()
 }
+
+function addToList(movieObject) {
+    movieList.push(movieObject);
+}
+
+addButton.addEventListener('click', addCurretMovieToList);
 
 function isMovieAlreadyList(id) { //tratamento de erro que evita que seja adicionado dois filmes do mesmo
     function doesThisIdBelongThisMovie(movieObjectie){
@@ -118,6 +132,23 @@ function isMovieAlreadyList(id) { //tratamento de erro que evita que seja adicio
     
 }
 
-btnSearch.addEventListener('click', btnOpen);
-exit.addEventListener('click', clickExit)
-addButton.addEventListener('click', addCurretMovieToList)
+function updataLocalStorage(){
+    localStorage.setItem('movieList',JSON.stringify(movieList));
+}
+
+for (const movieInfo of movieList){
+    upDataMovieList(movieInfo)
+}
+
+async function translate (texto, sourceLang = 'pt', targetLange = 'en') {
+    let url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(texto)}&langpair=${sourceLang}|${targetLange}`;
+    const response = await fetch(url);
+    const data = await response.json();
+  
+    // Verificação de segurança para retornar o texto traduzido de verdade pela API
+    if (data && data.responseData && data.responseData.translatedText) {
+        return data.responseData.translatedText;
+    }
+    
+    return texto; 
+}
