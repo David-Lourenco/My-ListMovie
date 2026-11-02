@@ -1,0 +1,14 @@
+# Dependências do Node
+node_modules/
+
+# Pasta de compilação/build
+# Ficheiro com chaves de API / Segredos
+key.js
+
+# Configurações locais do editor
+.vscode/
+
+# Ficheiros do sistema operativo e logs
+.DS_Store
+Thumbs.db
+*.log

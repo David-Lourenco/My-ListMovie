@@ -1,4 +1,5 @@
 const overlay = document.getElementById('modal-overlay');
+
 const exit = document.getElementById('btn-exit');
 const btnSearch = document.getElementById('search-button');
 
