@@ -17,7 +17,7 @@ let movieList = JSON.parse(localStorage.getItem('movieList'))??[];//variavel que
 async function btnOpen() {
     try {
         let translateName  = await treatmentName(); //tratamento de erro , que manda executar o codigo abaixo,caso haja algum erro ele pula direto para o catch
-        let url = `http://www.omdbapi.com/?apikey=${key}&t=${translateName}&y=${treatmentYear()}`
+        let url = `https://www.omdbapi.com/?apikey=${key}&t=${translateName}&y=${treatmentYear()}` //APi da OMDB
 
         const response = await fetch(url);
         const data = await response.json()
@@ -141,7 +141,7 @@ for (const movieInfo of movieList){
 }
 
 async function translate (texto, sourceLang = 'pt', targetLange = 'en') {
-    let url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(texto)}&langpair=${sourceLang}|${targetLange}`;
+    let url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(texto)}&langpair=${sourceLang}|${targetLange}`;//API My Memory Translate
     const response = await fetch(url);
     const data = await response.json();
   
